@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="Waypoint" type="Position2D" groups=["waypoint"]]
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
