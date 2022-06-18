@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Entities/CameraSetArea.gd" type="Script" id=1]
+
+[node name="CameraSetArea" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -277, -234, 206, -329, 252, 76, -542, 590 )
+
+[connection signal="body_entered" from="." to="." method="_on_CameraSetArea_body_entered"]

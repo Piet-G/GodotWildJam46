@@ -25,20 +25,39 @@ _global_script_classes=[ {
 "path": "res://Entities/Camera.gd"
 }, {
 "base": "Node2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+}, {
+"base": "Area2D",
+"class": "RespawnPoint",
+"language": "GDScript",
+"path": "res://RespawnPoint.gd"
+}, {
+"base": "Node2D",
 "class": "WaypointSequence",
 "language": "GDScript",
 "path": "res://Entities/WaypointSequence.gd"
+}, {
+"base": "Area2D",
+"class": "WoodenDoor",
+"language": "GDScript",
+"path": "res://Entities/WoodenDoor.gd"
 } ]
 _global_script_class_icons={
 "Laser": "",
 "Orby": "",
 "OrbyCamera": "",
-"WaypointSequence": ""
+"Player": "",
+"RespawnPoint": "",
+"WaypointSequence": "",
+"WoodenDoor": ""
 }
 
 [application]
 
 config/name="OrbGame"
+run/main_scene="res://Levels/InitialLevel.tscn"
 config/icon="res://icon.png"
 
 [input]

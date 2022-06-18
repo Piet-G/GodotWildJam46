@@ -20,8 +20,8 @@ func _physics_process(delta):
 	laser.is_active = orby && orby.is_lit
 	
 	if(laser.is_active):
-		var distance = orby.global_position.distance_to(global_position)
-		laser.rotation = global_position.angle_to_point(orby.global_position)
+		var distance = orby.global_position.distance_to(laser.global_position)
+		laser.rotation = laser.global_position.angle_to_point(orby.global_position)
 		var lerp_weigth = inverse_lerp(min_distance, max_distance, distance)
 		laser.scale.x = lerp(0.5, 4, lerp_weigth)
 	
