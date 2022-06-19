@@ -1,24 +1,54 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/WoodenDoor.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Torch/white_square.png" type="Texture" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
-polygon = PoolVector2Array( -26, -125, 36, -126, 30, 81, -30, 89 )
+polygon = PoolVector2Array( -7.82812, -207.436, 48.9238, -207.436, 48.9238, 7.82776, 0, 0 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.100503, 0.684685 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.37037, 0.688889, 1 )
+colors = PoolColorArray( 0.945312, 0.487708, 0.083939, 1, 0.996094, 0.400682, 0.0063177, 1, 0.972656, 0.0329017, 0.0329017, 1, 1, 1, 1, 1 )
 
 [node name="WoodenDoor" type="Area2D"]
 script = ExtResource( 1 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -21, -129, 34, -126, 32, 80, -24, 70 )
-
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 3
-position = Vector2( 0, -17 )
-scale = Vector2( 1, 3.59375 )
-texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -21, -129, 34, -126, 32, 80, -24, 70 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 light_mask = 2
 occluder = SubResource( 1 )
 light_mask = 2
+
+[node name="Particles2D2" type="CPUParticles2D" parent="."]
+light_mask = 3
+position = Vector2( -27, 1 )
+z_index = 21
+emitting = false
+amount = 40
+lifetime = 1.5
+texture = ExtResource( 2 )
+direction = Vector2( 0, -1 )
+spread = 30.0
+gravity = Vector2( 0, 50 )
+initial_velocity = 50.0
+initial_velocity_random = 0.4
+angular_velocity_random = 1.0
+radial_accel = 100.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.05
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -1, 0, 0, -192, 48, -192, 48, 0 )

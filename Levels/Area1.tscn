@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/light.png" type="Texture" id=8]
 [ext_resource path="res://Entities/Spikes.tscn" type="PackedScene" id=9]
 [ext_resource path="res://RespawnPoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/CameraSetArea.tscn" type="PackedScene" id=11]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -57, 259, -3, 294, 64, 334, 82, 357, 113, 366, 162, 337, -27, 204, -95, -68, -81, 223 )
@@ -58,7 +59,7 @@ position = Vector2( 487, 476 )
 position = Vector2( 1342, 488 )
 
 [node name="Waypoint3" parent="WaypointSequence" instance=ExtResource( 2 )]
-position = Vector2( 3556, 494 )
+position = Vector2( 3361, 499 )
 
 [node name="Waypoint4" parent="WaypointSequence" instance=ExtResource( 2 )]
 position = Vector2( 3892, 502 )
@@ -81,7 +82,7 @@ position = Vector2( 2640, 400 )
 position = Vector2( 2832, 400 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 5385, 471 )
+position = Vector2( 5211, 657 )
 texture = ExtResource( 8 )
 offset = Vector2( -5689, -189 )
 texture_scale = 2.0
@@ -124,4 +125,17 @@ position = Vector2( 5086, 375 )
 position = Vector2( 4245, 466 )
 
 [node name="RespawnPoint" parent="." instance=ExtResource( 10 )]
-position = Vector2( 4143, 372 )
+position = Vector2( 3717, 374 )
+
+[node name="CameraSetArea" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4596, 565 )
+limit_height = 2
+
+[node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
+position = Vector2( 28, -600 )
+
+[node name="CameraSetArea2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 650, 502 )
+scale = Vector2( 5.5476, 1 )
+
+[editable path="CameraSetArea"]

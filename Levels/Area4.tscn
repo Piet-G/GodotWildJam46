@@ -24,12 +24,12 @@ scale = Vector2( 0.511177, 0.511177 )
 [node name="Crystal2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3284, -766 )
 rotation = 3.0254
-scale = Vector2( 0.511177, 0.511177 )
+scale = Vector2( 0.9, 0.9 )
 
 [node name="Crystal3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3591, -600 )
 rotation = -2.09335
-scale = Vector2( 0.511177, 0.511177 )
+scale = Vector2( 0.703332, 0.701119 )
 
 [node name="MainTerrain4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3688, -520 )
@@ -68,19 +68,19 @@ position = Vector2( 4075, -387 )
 position = Vector2( 5286, -376 )
 
 [node name="Torch" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2977, -475 )
+position = Vector2( 2974, -491 )
 is_lit = false
 
 [node name="Torch2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3241, -469 )
+position = Vector2( 3238, -485 )
 is_lit = false
 
 [node name="Torch3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3452, -468 )
+position = Vector2( 3449, -484 )
 is_lit = false
 
 [node name="Torch4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3632, -468 )
+position = Vector2( 3613, -484 )
 is_lit = false
 
 [node name="Water" parent="." instance=ExtResource( 8 )]

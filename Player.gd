@@ -9,6 +9,9 @@ export(NodePath) var waypoint_1
 export(NodePath) var waypoint_2_1
 export(NodePath) var waypoiny_2_detect_area
 export(NodePath) var waypoint_2_2
+export(NodePath) var waypoint_2_3
+export(NodePath) var waypoiny_2_3_detect_area
+export(NodePath) var waypoint_2_4
 export(NodePath) var door_1
 export(NodePath) var waypoint_3
 export(NodePath) var waypoint_4_1
@@ -53,16 +56,21 @@ func get_next_waypoint_sequence() -> WaypointSequence:
 				return get_node(waypoint_2_2) as WaypointSequence
 			else:
 				return get_node(waypoint_2_1) as WaypointSequence
-		1: 
+		1:
+			if(get_node(waypoiny_2_3_detect_area).is_overlapping_player()):
+				return get_node(waypoint_2_4) as WaypointSequence
+			else:
+				return get_node(waypoint_2_3) as WaypointSequence
+		2: 
 			return null
-		2:
+		3:
 			return get_node(waypoint_3) as WaypointSequence
-		3: 
+		4: 
 			if(get_node(waypoiny_4_detect_area).is_overlapping_player()):
 				return get_node(waypoint_4_2) as WaypointSequence
 			else:
 				return get_node(waypoint_4_1) as WaypointSequence
-		4:
+		5:
 			if(get_node(waypoiny_5_detect_area).is_overlapping_player()):
 				return get_node(waypoint_5_2) as WaypointSequence
 			else:
@@ -73,7 +81,7 @@ func get_next_waypoint_sequence() -> WaypointSequence:
 
 func has_finished_waiting() -> bool:
 	match waypoint_sequence_count:
-		2:
+		3:
 			return get_node(door_1).is_open
 	
 	return false

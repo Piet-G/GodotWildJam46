@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MainTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/SLOPE2.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/PlayerDetectArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/CameraSetArea.tscn" type="PackedScene" id=9]
 
 [node name="Area3" type="Node2D"]
 position = Vector2( 9256, -320 )
@@ -117,3 +118,12 @@ position = Vector2( 1224, 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectArea"]
 polygon = PoolVector2Array( 440, 0, 528, 0, 1784, 8, 1672, -416, 1312, -448, 576, -136 )
+
+[node name="CameraSetArea" parent="." instance=ExtResource( 9 )]
+position = Vector2( 121, 49 )
+limit_height = 2
+
+[node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
+position = Vector2( 28, -600 )
+
+[editable path="CameraSetArea"]

@@ -3,6 +3,8 @@
 [ext_resource path="res://Entities/Camera.gd" type="Script" id=1]
 
 [node name="Camera" type="Camera2D"]
+process_mode = 0
+limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 drag_margin_left = 0.5
