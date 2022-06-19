@@ -17,15 +17,21 @@ export var close_to_mouse_treshold = 10
 var is_lit = false
 var was_lit = false
 
+var game_started = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	camera.player = get_tree().get_nodes_in_group("player")[0]
+	
+func start_game():
+	game_started = true
 
 func _physics_process(delta):
-	was_lit = is_lit
-	is_lit = Input.is_action_pressed("light")
-	
-	move_to_mouse()
+	if(game_started):
+		was_lit = is_lit
+		is_lit = Input.is_action_pressed("light")
+		
+		move_to_mouse()
 
 func respawn_to(pos: Vector2):
 	global_position = pos

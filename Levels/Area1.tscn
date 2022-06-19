@@ -99,7 +99,7 @@ polygon = PoolVector2Array( -74, 469, 1431, 486, 2327.14, 491.99, 5054, 524, 505
 position = Vector2( 476, 2 )
 
 [node name="Waypoint" parent="WaypointSequence" instance=ExtResource( 2 )]
-position = Vector2( 487, 476 )
+position = Vector2( -766, 480 )
 
 [node name="Waypoint2" parent="WaypointSequence" instance=ExtResource( 2 )]
 position = Vector2( 1342, 488 )
@@ -181,7 +181,7 @@ limit_height = 2
 position = Vector2( 28, -600 )
 
 [node name="CameraSetArea2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 650, 502 )
+position = Vector2( -363, 496 )
 scale = Vector2( 5.5476, 1 )
 
 [node name="AreaHider" parent="." instance=ExtResource( 6 )]
