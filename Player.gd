@@ -80,6 +80,11 @@ func get_next_waypoint_sequence() -> WaypointSequence:
 				return get_node(waypoint_5_2) as WaypointSequence
 			else:
 				return get_node(waypoint_5_1) as WaypointSequence
+		6:
+			get_tree().get_nodes_in_group("orby")[0].game_started = false
+			animation_player.play("diamond")
+			waypoint_sequence_count = -1
+			return null
 			
 	return null
 

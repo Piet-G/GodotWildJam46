@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Assets/Run/Explorer_0001.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Entities/Player/Assets/Idle/Scared_0002.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sounds/steps.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Assets/Sounds/Death.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Explorer_final.png" type="Texture" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
@@ -30,6 +31,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "diamond"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -105,6 +121,7 @@ polygon = PoolVector2Array( -19, 0, -59, 0, -19, -8, -17, -75, 396, -53, 395, -1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/RESET = SubResource( 3 )
+anims/diamond = SubResource( 7 )
 anims/idle = SubResource( 5 )
 anims/scared = SubResource( 6 )
 anims/walk = SubResource( 4 )

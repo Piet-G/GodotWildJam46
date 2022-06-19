@@ -61,7 +61,7 @@ position = Vector2( 2638, -387 )
 position = Vector2( 4075, -387 )
 
 [node name="Waypoint10" parent="WaypointSequence" instance=ExtResource( 4 )]
-position = Vector2( 5286, -376 )
+position = Vector2( 5387, -379 )
 
 [node name="Torch" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2974, -491 )
