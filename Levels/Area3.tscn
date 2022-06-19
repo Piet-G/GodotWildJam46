@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://MainTerrain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/SLOPE2.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Torch/Torch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/SLOPE2_upperlvl2.png" type="Texture" id=5]
+[ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/PlayerDetectArea.tscn" type="PackedScene" id=8]
+
+[node name="Area3" type="Node2D"]
+position = Vector2( 9256, -320 )
+
+[node name="MainTerrain" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3680, -520 )
+texture = ExtResource( 2 )
+
+[node name="MainTerrain2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3680, -520 )
+texture = ExtResource( 5 )
+
+[node name="Spikes" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2464, 32 )
+
+[node name="Torch" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2408, -112 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1800, -640 )
+
+[node name="Torch2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1744, -784 )
+
+[node name="Torch3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1256, -784 )
+
+[node name="Torch4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 928, -648 )
+
+[node name="Torch5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 680, -408 )
+
+[node name="Torch6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 352, -136 )
+
+[node name="Torch7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 120, -40 )
+
+[node name="Torch8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 944, -40 )
+
+[node name="Torch9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1360, -40 )
+
+[node name="Torch10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1720, -40 )
+
+[node name="Torch11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2032, -40 )
+
+[node name="WaypointSequence" parent="." instance=ExtResource( 6 )]
+
+[node name="Waypoint" parent="WaypointSequence" instance=ExtResource( 7 )]
+position = Vector2( 16, 8 )
+
+[node name="WaypointSequence2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 456, 0 )
+
+[node name="Waypoint" parent="WaypointSequence2" instance=ExtResource( 7 )]
+position = Vector2( 16, 8 )
+
+[node name="Waypoint2" parent="WaypointSequence2" instance=ExtResource( 7 )]
+position = Vector2( 688, 8 )
+
+[node name="WaypointSequenceDeath1" parent="." instance=ExtResource( 6 )]
+
+[node name="Waypoint" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 288, 8 )
+
+[node name="Waypoint2" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 472, -128 )
+
+[node name="Waypoint3" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 656, -288 )
+
+[node name="Waypoint4" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 888, -496 )
+
+[node name="Waypoint5" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 1072, -664 )
+
+[node name="Waypoint6" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 1456, -672 )
+
+[node name="Waypoint7" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 1672, -664 )
+
+[node name="Waypoint8" parent="WaypointSequenceDeath1" instance=ExtResource( 7 )]
+position = Vector2( 1792, -664 )
+
+[node name="WaypointSequenceDeath2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1240, 8 )
+
+[node name="Waypoint" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+
+[node name="Waypoint2" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+position = Vector2( 456, 8 )
+
+[node name="Waypoint3" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+position = Vector2( 832, 8 )
+
+[node name="Waypoint4" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+position = Vector2( 1224, 16 )
+
+[node name="PlayerDetectArea" parent="." instance=ExtResource( 8 )]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectArea"]
+polygon = PoolVector2Array( 440, 0, 528, 0, 1784, 8, 1672, -416, 1312, -448, 576, -136 )

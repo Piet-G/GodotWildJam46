@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://MainTerrain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/SLOPE2_upperlvl1.png" type="Texture" id=2]
+[ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/SLOPE2_grates.png" type="Texture" id=5]
+[ext_resource path="res://Entities/Crystal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Torch/Torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Water.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/PlayerDetectArea.tscn" type="PackedScene" id=9]
+
+[node name="Area4" type="Node2D"]
+
+[node name="MainTerrain3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3688, -520 )
+texture = ExtResource( 2 )
+
+[node name="Crystal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2974, -643 )
+rotation = 0.811129
+scale = Vector2( 0.511177, 0.511177 )
+
+[node name="Crystal2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3284, -766 )
+rotation = 3.0254
+scale = Vector2( 0.511177, 0.511177 )
+
+[node name="Crystal3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3591, -600 )
+rotation = -2.09335
+scale = Vector2( 0.511177, 0.511177 )
+
+[node name="MainTerrain4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3688, -520 )
+texture = ExtResource( 5 )
+
+[node name="WaypointSequence" parent="." instance=ExtResource( 3 )]
+
+[node name="Waypoint" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 1099, 12 )
+
+[node name="Waypoint2" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 1274, -124 )
+
+[node name="Waypoint3" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 1398, -231 )
+
+[node name="Waypoint4" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 1598, -391 )
+
+[node name="Waypoint5" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 2006, -399 )
+
+[node name="Waypoint6" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 2192, -286 )
+
+[node name="Waypoint7" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 2501, -278 )
+
+[node name="Waypoint8" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 2638, -387 )
+
+[node name="Waypoint9" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 4075, -387 )
+
+[node name="Waypoint10" parent="WaypointSequence" instance=ExtResource( 4 )]
+position = Vector2( 5286, -376 )
+
+[node name="Torch" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2977, -475 )
+is_lit = false
+
+[node name="Torch2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3241, -469 )
+is_lit = false
+
+[node name="Torch3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3452, -468 )
+is_lit = false
+
+[node name="Torch4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3632, -468 )
+is_lit = false
+
+[node name="Water" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2332, -308 )
+scale = Vector2( 8.9405, 2.62957 )
+
+[node name="PlayerDetectArea2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 635, -6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectArea2"]
+polygon = PoolVector2Array( 468, -180, 680, -142, 980, -392, 1672, -416, 1362, -530, 909, -545, 683, -377 )

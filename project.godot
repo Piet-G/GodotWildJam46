@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://Player.gd"
 }, {
 "base": "Area2D",
+"class": "PlayerDetectArea",
+"language": "GDScript",
+"path": "res://Entities/PlayerDetectArea.gd"
+}, {
+"base": "Area2D",
 "class": "RespawnPoint",
 "language": "GDScript",
 "path": "res://RespawnPoint.gd"
@@ -49,6 +54,7 @@ _global_script_class_icons={
 "Orby": "",
 "OrbyCamera": "",
 "Player": "",
+"PlayerDetectArea": "",
 "RespawnPoint": "",
 "WaypointSequence": "",
 "WoodenDoor": ""

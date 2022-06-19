@@ -1,13 +1,23 @@
 class_name Player
 extends Node2D
-export var speed = 64
+export var speed = 100
 
 onready var light_detection_area = $LightDetectionArea
 onready var animation_player = $AnimationPlayer
 
 export(NodePath) var waypoint_1
+export(NodePath) var waypoint_2_1
+export(NodePath) var waypoiny_2_detect_area
+export(NodePath) var waypoint_2_2
 export(NodePath) var door_1
 export(NodePath) var waypoint_3
+export(NodePath) var waypoint_4_1
+export(NodePath) var waypoiny_4_detect_area
+export(NodePath) var waypoint_4_2
+export(NodePath) var waypoint_5_1
+export(NodePath) var waypoiny_5_detect_area
+export(NodePath) var waypoint_5_2
+
 
 
 var current_waypoint_sequence : WaypointSequence
@@ -23,6 +33,10 @@ func is_lit() -> bool:
 		if(area.is_in_group("light")):
 			return true
 	
+	for body in light_detection_area.get_overlapping_bodies():
+		if(body.is_in_group("light")):
+			return true
+	
 	return false
 	
 func move_to_waypoint(delta: float, waypoint: Vector2):
@@ -35,18 +49,31 @@ func has_reached_waypoint(waypoint: Vector2) -> bool:
 func get_next_waypoint_sequence() -> WaypointSequence:
 	match waypoint_sequence_count:
 		0:
-			print("Waiting")
-			return null
+			if(get_node(waypoiny_2_detect_area).is_overlapping_player()):
+				return get_node(waypoint_2_2) as WaypointSequence
+			else:
+				return get_node(waypoint_2_1) as WaypointSequence
 		1: 
-			print("Advancing")
+			return null
+		2:
 			return get_node(waypoint_3) as WaypointSequence
+		3: 
+			if(get_node(waypoiny_4_detect_area).is_overlapping_player()):
+				return get_node(waypoint_4_2) as WaypointSequence
+			else:
+				return get_node(waypoint_4_1) as WaypointSequence
+		4:
+			if(get_node(waypoiny_5_detect_area).is_overlapping_player()):
+				return get_node(waypoint_5_2) as WaypointSequence
+			else:
+				return get_node(waypoint_5_1) as WaypointSequence
 			
 	print("Finished")
 	return null
 
 func has_finished_waiting() -> bool:
 	match waypoint_sequence_count:
-		1:
+		2:
 			return get_node(door_1).is_open
 	
 	return false
@@ -82,6 +109,8 @@ func respawn():
 	waypoint_sequence_count = last_respawn_point.saved_waypoint_sequence_count
 	
 	global_position = current_waypoint_sequence.get_waypoints()[current_waypoint_index]
+	var orby = get_tree().get_nodes_in_group("orby")[0]
+	orby.respawn_to($OrbyRespawnPosition.global_position)
 
 func _physics_process(delta):
 	navigate_waypoint_sequence(delta)

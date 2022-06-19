@@ -1,0 +1,199 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Levels/SLOPE1_deur.png" type="Texture" id=1]
+[ext_resource path="res://Levels/SLOPE1_foreground.png" type="Texture" id=2]
+[ext_resource path="res://Entities/PlayerDetectArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/CameraSetArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Water.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Crystal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/WoodenDoor.gd" type="Script" id=9]
+[ext_resource path="res://Levels/SLOPE1_grates.png" type="Texture" id=10]
+[ext_resource path="res://RespawnPoint.gd" type="Script" id=11]
+[ext_resource path="res://Levels/SLOPE1.png" type="Texture" id=14]
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( 0, -172.152, 0, 0, 78.252, 0, 62.6016, -172.152 )
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 1024, -184, 712, -184, 584, -72, 264, -64, 264, -24, 560, -16, 712, -144, 1016, -144 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 1288, -176, 1200, -176, 1200, -128, 1280, -128 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 1432, -176, 1200, -176, 1200, -128, 1424, -128 )
+
+[node name="Area2" type="Node2D"]
+position = Vector2( 5560, -176 )
+
+[node name="WayPointSequenceLife" parent="." instance=ExtResource( 4 )]
+
+[node name="Waypoint" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( -1160, 680 )
+
+[node name="Waypoint2" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( -968, 536 )
+
+[node name="Waypoint3" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( -632, 264 )
+
+[node name="Waypoint4" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( -152, 256 )
+
+[node name="Waypoint5" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( 24, 376 )
+
+[node name="Waypoint6" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( 320, 376 )
+
+[node name="Waypoint7" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( 456, 264 )
+
+[node name="Waypoint8" parent="WayPointSequenceLife" instance=ExtResource( 7 )]
+position = Vector2( 2072, 272 )
+
+[node name="WayPointSequenceLife2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2296, 272 )
+
+[node name="Waypoint" parent="WayPointSequenceLife2" instance=ExtResource( 7 )]
+
+[node name="Waypoint2" parent="WayPointSequenceLife2" instance=ExtResource( 7 )]
+position = Vector2( 112, 0 )
+
+[node name="Waypoint3" parent="WayPointSequenceLife2" instance=ExtResource( 7 )]
+position = Vector2( 232, -96 )
+
+[node name="Waypoint4" parent="WayPointSequenceLife2" instance=ExtResource( 7 )]
+position = Vector2( 352, -184 )
+
+[node name="Waypoint5" parent="WayPointSequenceLife2" instance=ExtResource( 7 )]
+position = Vector2( 504, -320 )
+
+[node name="Waypoint6" parent="WayPointSequenceLife2" instance=ExtResource( 7 )]
+position = Vector2( 616, -408 )
+
+[node name="Waypoint7" parent="WayPointSequenceLife2" instance=ExtResource( 7 )]
+position = Vector2( 1056, -408 )
+
+[node name="PlayerDetectArea" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1304, 272 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectArea"]
+polygon = PoolVector2Array( 160, 200, 240, 136, 656, -184, 856, -192, 944, -16, 792, -16, 664, -8, 552, 80, 336, 264 )
+
+[node name="Water" parent="." instance=ExtResource( 6 )]
+position = Vector2( 160, 344 )
+scale = Vector2( 9.47406, 1.70681 )
+
+[node name="Terrain" type="Sprite" parent="."]
+light_mask = 3
+position = Vector2( 2151, 272 )
+scale = Vector2( 0.511177, 0.511177 )
+z_index = 20
+texture = ExtResource( 14 )
+
+[node name="RespawnPoint" type="Area2D" parent="."]
+position = Vector2( 3696, -136 )
+scale = Vector2( 0.511177, 0.511177 )
+script = ExtResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RespawnPoint"]
+polygon = PoolVector2Array( -62.5996, 46.9504, -78.25, -547.755, 281.703, -500.805, 313.004, 15.6501 )
+
+[node name="Terrain2" type="Sprite" parent="."]
+light_mask = 3
+position = Vector2( 2151, 272 )
+scale = Vector2( 0.511177, 0.511177 )
+z_index = 20
+texture = ExtResource( 10 )
+
+[node name="WoodenDoor" type="Area2D" parent="."]
+position = Vector2( 3600, -144 )
+scale = Vector2( 0.511177, 0.511177 )
+script = ExtResource( 9 )
+
+[node name="Terrain2" type="Sprite" parent="WoodenDoor"]
+light_mask = 3
+position = Vector2( -2834.63, 813.808 )
+z_index = 25
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WoodenDoor"]
+polygon = PoolVector2Array( 0, -172.152, 0, 0, 46.9512, 0, 46.9512, -172.152 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="WoodenDoor"]
+light_mask = 2
+occluder = SubResource( 4 )
+light_mask = 2
+
+[node name="Terrain3" type="Sprite" parent="."]
+light_mask = 3
+position = Vector2( 2151, 272 )
+scale = Vector2( 0.511177, 0.511177 )
+z_index = 15
+texture = ExtResource( 2 )
+
+[node name="CameraSetArea" parent="." instance=ExtResource( 5 )]
+position = Vector2( -736, 344 )
+
+[node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
+position = Vector2( -16, -528 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( -248, 248 )
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2( -248, 248 )
+occluder = SubResource( 2 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+position = Vector2( -8, 240 )
+occluder = SubResource( 2 )
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
+position = Vector2( 240, 248 )
+occluder = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -248, 248 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 240, 16, 200, -32, 208, -64, 248, -80, 560, -80, 704, -192, 1008, -192, 1048, -192, 1056, -168, 1168, -168, 1176, -192, 1304, -192, 1304, -168, 1424, -168, 1424, -192, 1544, -192, 1544, -168, 1664, -168, 1664, -192, 1936, -192, 1968, -168, 1944, -112, 1664, -120, 1664, -152, 1544, -152, 1544, -120, 1424, -120, 1424, -152, 1304, -152, 1288, -112, 1192, -120, 1168, -144, 1056, -144, 1032, -120, 976, -120, 752, -128, 712, -120, 560, 16 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -736, -464, -736, 48, -672, 48, -376, -184, -200, -184, -168, -128, 72, -128, 368, -344, 424, -344, 856, -360, 1112, -360, 2016, -360, 2416, -112, 2568, -112, 3144, -608, 3728, -624, 3856, -536, 3936, -536, 3936, -776, 2408, -800, 2416, -456, 216, -464 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -424, 56, -344, 24, 96, 16, 248, 128, 576, 136, 728, 16, 3744, 56, 3752, 112, 3904, 104, 3912, 48, 3968, 0, 3952, -72, 3904, -160, 3824, -216, 3745.7, -207.02, 3632, -160, 3584, -112, 3376, -128, 3120, -128, 2904, -144, 3168, -368, 4280, -360, 4112, 208, 336, 184, -424, 128, -680, 344, -720, 304 )
+
+[node name="Crystal" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3392, -128 )
+
+[node name="WaypointSequenceDeath2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2296, 272 )
+
+[node name="Waypoint" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+
+[node name="Waypoint2" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+position = Vector2( 272, 8 )
+
+[node name="Waypoint3" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+position = Vector2( 960, 16 )
+
+[node name="Waypoint4" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+position = Vector2( 1200, 16 )
+
+[node name="Waypoint5" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
+position = Vector2( 1296, 24 )
+
+[node name="CameraSetArea2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3392, -136 )
+
+[node name="CollisionPolygon2D" parent="CameraSetArea2" index="0"]
+position = Vector2( 8, -576 )
+
+[editable path="CameraSetArea"]
+[editable path="CameraSetArea2"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/SLOPE1.png" type="Texture" id=1]
+
+[node name="MainTerrain" type="Sprite"]
+light_mask = 3
+position = Vector2( 2151, 272 )
+scale = Vector2( 0.511177, 0.511177 )
+z_index = 20
+texture = ExtResource( 1 )

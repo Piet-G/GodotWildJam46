@@ -1,13 +1,18 @@
 class_name Orby
 extends KinematicBody2D
 
-onready var sprite = $Sprite
+onready var sprite = $Sprites/Wings
 onready var camera = $Camera
 onready var light_animation_player = $LightAnimationPlayer
 
-export var speed = 200
+export var max_speed = 750
+export var min_speed = 220
+export var max_speed_distance = 500
+export var min_speed_distance = 20
 export var lit_speed = 50
-export var close_to_mouse_treshold = 20
+export var close_to_mouse_treshold = 10
+
+
 
 var is_lit = false
 var was_lit = false
@@ -22,8 +27,13 @@ func _physics_process(delta):
 	
 	move_to_mouse()
 
+func respawn_to(pos: Vector2):
+	global_position = pos
+
 func move_to_mouse():
 	var final_speed
+	
+	var local_mouse_position = get_local_mouse_position()
 	
 	if(is_lit):
 		final_speed = lit_speed
@@ -31,12 +41,13 @@ func move_to_mouse():
 		if(is_lit != was_lit):
 			light_animation_player.play("light")
 	else:
-		final_speed = speed
+		var lerp_weight = clamp(inverse_lerp(min_speed_distance, max_speed_distance, local_mouse_position.length()), 0.1, 1)
+		final_speed = lerp(min_speed, max_speed, lerp_weight)
 		
 		if(is_lit != was_lit):
 			light_animation_player.play("RESET")
 	
-	var local_mouse_position = get_local_mouse_position()
+
 	
 	if(local_mouse_position.length() > close_to_mouse_treshold):
 		sprite.flip_h = local_mouse_position.x < 0

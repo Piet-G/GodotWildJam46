@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LightArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/main.png" type="Texture" id=4]
+[ext_resource path="res://Entities/Torch/Torch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/World_background_1.png" type="Texture" id=6]
+[ext_resource path="res://Levels/World_Foreground.png" type="Texture" id=7]
+[ext_resource path="res://Assets/light.png" type="Texture" id=8]
+[ext_resource path="res://Entities/Spikes.tscn" type="PackedScene" id=9]
+[ext_resource path="res://RespawnPoint.tscn" type="PackedScene" id=10]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -57, 259, -3, 294, 64, 334, 82, 357, 113, 366, 162, 337, -27, 204, -95, -68, -81, 223 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -77, 264, -24, 300, 59, 341, 81, 356, 500, 263, 29, 247, -62, 253, -77, 273 )
+
+[node name="Area1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -81, 256, -59, 297, -23, 324, 15, 346, 57, 366, 133, 351, 179, 324, 239, 276, 273, 247, 341, 216, 441, 181, 473, 177, 505, 170, 513, 160, 539, 168, 575, 162, 626, 160, 641, 133, 663, 131, 733, 71, 738, 40, 767, 34, 798, 9, 815, 8, 848, -8, 898, -5, 933, -6, 990, -34, 1012, -34, 1037, -28, 1055, -35, 1081, -34, 1111, -18, 1137, -32, 1153, -31, 1176, -23, 1189, -33, 1206, -17, 1238, -2, 1253, -2, 1263, -4, 1280, -1, 1286, 3, 1293, 7, 1309, -4, 1326, -7, 1347, -6, 1368, -2, 1398, -13, 1415, -23, 1441, -39, 2004, -38, 2283, -41, 3416, -40, 3720, 168, 3792, 184, 3880, 192, 3968, 248, 4096, 304, 4192, 368, 4320, 368, 4627, 116, 4320, -192, 2660, -190, -4, -205 )
+
+[node name="Level" type="Sprite" parent="StaticBody2D"]
+light_mask = 3
+position = Vector2( 2494, 234 )
+scale = Vector2( 0.511177, 0.511177 )
+z_index = 25
+texture = ExtResource( 4 )
+
+[node name="Foreground" type="Sprite" parent="StaticBody2D"]
+light_mask = 3
+position = Vector2( 3293, 603 )
+scale = Vector2( 0.511177, 0.511177 )
+z_index = 30
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -74, 469, 1431, 486, 2327.14, 491.99, 5054, 524, 5051, 580, 5201, 569, 5262, 494, 5266, 392, 5245, 344, 5115, 278, 4985, 277, 4886, 364, 4712, 355, 4836, 240, 5130, 180, 5425, 270, 5250, 642, 5053, 641, -90, 538 )
+
+[node name="MediumBackground" type="Sprite" parent="."]
+light_mask = 3
+position = Vector2( 3293, 603 )
+scale = Vector2( 0.511, 0.511 )
+z_index = 10
+texture = ExtResource( 6 )
+
+[node name="WaypointSequence" parent="." instance=ExtResource( 1 )]
+position = Vector2( 476, 2 )
+
+[node name="Waypoint" parent="WaypointSequence" instance=ExtResource( 2 )]
+position = Vector2( 487, 476 )
+
+[node name="Waypoint2" parent="WaypointSequence" instance=ExtResource( 2 )]
+position = Vector2( 1342, 488 )
+
+[node name="Waypoint3" parent="WaypointSequence" instance=ExtResource( 2 )]
+position = Vector2( 3556, 494 )
+
+[node name="Waypoint4" parent="WaypointSequence" instance=ExtResource( 2 )]
+position = Vector2( 3892, 502 )
+
+[node name="LightArea" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightArea"]
+polygon = PoolVector2Array( 24, 352, 24, 472, 608, 480 )
+
+[node name="Torch1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2984, 400 )
+
+[node name="Torch3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3144, 400 )
+
+[node name="Torch4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2640, 400 )
+
+[node name="Torch2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2832, 400 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 5385, 471 )
+texture = ExtResource( 8 )
+offset = Vector2( -5689, -189 )
+texture_scale = 2.0
+color = Color( 1, 0.823529, 0.580392, 1 )
+energy = 2.0
+shadow_enabled = true
+shadow_gradient_length = 1.7
+shadow_filter = 3
+shadow_filter_smooth = 0.4
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+position = Vector2( -1, 242 )
+occluder = SubResource( 2 )
+
+[node name="Spikes" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5137, 540 )
+
+[node name="WayPointSequenceDeath1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4490, 496 )
+
+[node name="Waypoint" parent="WayPointSequenceDeath1" instance=ExtResource( 2 )]
+position = Vector2( 48, 8 )
+
+[node name="Waypoint2" parent="WayPointSequenceDeath1" instance=ExtResource( 2 )]
+position = Vector2( 464, 8 )
+
+[node name="Waypoint3" parent="WayPointSequenceDeath1" instance=ExtResource( 2 )]
+position = Vector2( 704, 8 )
+
+[node name="Torch" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4767, 466 )
+
+[node name="Torch5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5086, 375 )
+
+[node name="Torch6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4245, 466 )
+
+[node name="RespawnPoint" parent="." instance=ExtResource( 10 )]
+position = Vector2( 4143, 372 )

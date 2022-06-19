@@ -1,80 +1,64 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Levels/initial_level_foreground.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Area1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Area3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Area4.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Orby/Orby.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/CameraSetArea.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Entities/Crystal.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Entities/Torch/Torch.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/light.png" type="Texture" id=9]
-[ext_resource path="res://Entities/WoodenDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/Area2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://RespawnPoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/Torch/white_square.png" type="Texture" id=12]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 3, 529, 423, 506, 724, 506, 1185, 536, 1592, 530, 1573, 816, -352, 886 )
 
-[sub_resource type="Environment" id=2]
-background_mode = 4
-glow_enabled = true
-glow_intensity = 1.5
-
-[sub_resource type="OccluderPolygon2D" id=3]
-polygon = PoolVector2Array( -57, 259, -3, 294, 64, 334, 82, 357, 113, 366, 162, 337, -27, 204, -95, -68, -81, 223 )
-
-[sub_resource type="OccluderPolygon2D" id=4]
-polygon = PoolVector2Array( -77, 264, -24, 300, 59, 341, 81, 356, 500, 263, 29, 247, -62, 253, -77, 273 )
-
 [node name="InitialLevel" type="Node2D"]
 light_mask = 3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -81, 256, -59, 297, -23, 324, 15, 346, 57, 366, 133, 351, 179, 324, 239, 276, 273, 247, 341, 216, 441, 181, 473, 177, 505, 170, 513, 160, 539, 168, 575, 162, 626, 160, 641, 133, 663, 131, 733, 71, 738, 40, 767, 34, 798, 9, 815, 8, 848, -8, 898, -5, 933, -6, 990, -34, 1012, -34, 1037, -28, 1055, -35, 1081, -34, 1111, -18, 1137, -32, 1153, -31, 1176, -23, 1189, -33, 1206, -17, 1238, -2, 1253, -2, 1263, -4, 1280, -1, 1286, 3, 1293, 7, 1309, -4, 1326, -7, 1347, -6, 1368, -2, 1398, -13, 1415, -23, 1441, -39, 2004, -38, 2283, -41, 2658, -42, 2660, -190, -4, -205 )
-
-[node name="Foreground" type="Sprite" parent="StaticBody2D"]
+[node name="ColoredBackground" type="Sprite" parent="."]
+modulate = Color( 0.184314, 0.184314, 0.184314, 1 )
 light_mask = 3
-position = Vector2( 3293, 603 )
-scale = Vector2( 0.511177, 0.511177 )
-texture = ExtResource( 1 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -74, 469, 1431, 486, 2927, 496, 2923, 553, -90, 538 )
+position = Vector2( 7841.5, -318.5 )
+scale = Vector2( 53.5967, 7.98333 )
+texture = ExtResource( 12 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 176, 478 )
-waypoint_1 = NodePath("../WaypointSequence")
-door_1 = NodePath("../WoodenDoor")
-waypoint_3 = NodePath("../WaypointSequence2")
+position = Vector2( -88, 448 )
+z_index = 15
+z_as_relative = false
+waypoint_1 = NodePath("../Area1/WaypointSequence")
+waypoint_2_1 = NodePath("../Area1/WayPointSequenceDeath1")
+waypoiny_2_detect_area = NodePath("../Area2/PlayerDetectArea")
+waypoint_2_2 = NodePath("../Area2/WayPointSequenceLife")
+door_1 = NodePath("../Area2/WoodenDoor")
+waypoint_3 = NodePath("../Area3/WaypointSequence")
+waypoint_4_1 = NodePath("../Area3/WaypointSequenceDeath1")
+waypoiny_4_detect_area = NodePath("../Area3/PlayerDetectArea")
+waypoint_4_2 = NodePath("../Area3/WaypointSequence2")
+waypoint_5_1 = NodePath("../Area4/WaypointSequence")
+waypoiny_5_detect_area = NodePath("../Area4/PlayerDetectArea2")
+waypoint_5_2 = NodePath("../Area4/WaypointSequence")
 
-[node name="WaypointSequence2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2733, -234 )
+[node name="Area1" parent="." instance=ExtResource( 1 )]
 
-[node name="Waypoint" parent="WaypointSequence2" instance=ExtResource( 4 )]
-position = Vector2( 487, 476 )
+[node name="Area2" parent="." instance=ExtResource( 7 )]
 
-[node name="Waypoint2" parent="WaypointSequence2" instance=ExtResource( 4 )]
-position = Vector2( 1342, 488 )
+[node name="Area3" parent="." instance=ExtResource( 3 )]
 
-[node name="Waypoint3" parent="WaypointSequence2" instance=ExtResource( 4 )]
-position = Vector2( 1562, 471 )
-
-[node name="WaypointSequence" parent="." instance=ExtResource( 3 )]
-position = Vector2( 476, 2 )
-
-[node name="Waypoint" parent="WaypointSequence" instance=ExtResource( 4 )]
-position = Vector2( 487, 476 )
-
-[node name="Waypoint2" parent="WaypointSequence" instance=ExtResource( 4 )]
-position = Vector2( 1342, 488 )
-
-[node name="Waypoint3" parent="WaypointSequence" instance=ExtResource( 4 )]
-position = Vector2( 1562, 471 )
+[node name="Area4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 9249.8, -322 )
 
 [node name="Orby" parent="." instance=ExtResource( 5 )]
-position = Vector2( 239, 454 )
+position = Vector2( 272, 288 )
 scale = Vector2( 1.5, 1.5 )
+z_index = 15
+
+[node name="Light2D" parent="Orby" index="4"]
+color = Color( 0.784314, 0.533333, 0.176471, 1 )
+
+[node name="LightArea" parent="Orby" index="6"]
+visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.121569, 0.156863, 0.215686, 1 )
@@ -82,53 +66,16 @@ color = Color( 0.121569, 0.156863, 0.215686, 1 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 1 )
 
-[node name="Crystal" parent="." instance=ExtResource( 7 )]
-position = Vector2( 875, 488 )
-
-[node name="Crystal2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2130, 486 )
-
 [node name="CameraSetArea" parent="." instance=ExtResource( 6 )]
 position = Vector2( 384, 536 )
 
-[node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
-polygon = PoolVector2Array( -122, -302, 206, -329, 252, 76, -171, 43 )
+[node name="RespawnPoint" parent="." instance=ExtResource( 10 )]
+position = Vector2( 4032, 456 )
 
-[node name="Torch" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1191, 327 )
-is_lit = false
-
-[node name="Torch2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1364, 325 )
-
-[node name="Torch3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1526, 325 )
-
-[node name="Torch4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1720, 322 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( -304, 282 )
-texture = ExtResource( 9 )
-texture_scale = 2.0
-color = Color( 1, 0.823529, 0.580392, 1 )
-energy = 2.0
-shadow_enabled = true
-shadow_gradient_length = 1.7
-shadow_filter = 3
-shadow_filter_smooth = 0.4
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-occluder = SubResource( 3 )
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
-position = Vector2( -1, 242 )
-occluder = SubResource( 4 )
-
-[node name="WoodenDoor" parent="." instance=ExtResource( 10 )]
-position = Vector2( 2258, 392 )
-
-[editable path="CameraSetArea"]
+[editable path="Area1"]
+[editable path="Area2"]
+[editable path="Area2/CameraSetArea"]
+[editable path="Area2/CameraSetArea2"]
+[editable path="Area3"]
+[editable path="Area4"]
+[editable path="Orby"]

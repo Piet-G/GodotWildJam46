@@ -7,10 +7,11 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/blue_tint = Color( 0.152941, 0.47451, 0.666667, 1 )
-shader_param/sprite_scale = Vector2( 5.24051, 3.09784 )
+shader_param/sprite_scale = Vector2( 9.47406, 1.70681 )
 shader_param/scale_x = 0.67
 
-[node name="Water" type="StaticBody2D"]
+[node name="Water" type="StaticBody2D" groups=["light"]]
+z_index = 19
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]

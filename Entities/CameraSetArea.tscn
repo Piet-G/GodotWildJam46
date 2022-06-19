@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -277, -234, 206, -329, 252, 76, -542, 590 )
+polygon = PoolVector2Array( -144, -880, 144, -880, 136, 600, -120, 600 )
 
 [connection signal="body_entered" from="." to="." method="_on_CameraSetArea_body_entered"]
