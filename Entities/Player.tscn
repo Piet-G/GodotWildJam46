@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Assets/Run/Explorer_0001.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Entities/Player/Assets/Idle/Scared_0001.png" type="Texture" id=9]
 [ext_resource path="res://Entities/Player/Assets/Idle/Scared_0002.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sounds/steps.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sounds/Death.mp3" type="AudioStream" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
@@ -123,3 +124,6 @@ position = Vector2( -179, -73 )
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
 volume_db = -0.874
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
