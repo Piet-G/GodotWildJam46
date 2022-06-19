@@ -149,6 +149,7 @@ func navigate_waypoint_sequence(delta: float):
 
 func respawn():
 	$DeathSound.play()
+	$Sprite.visible = false
 	current_waypoint_index = last_respawn_point.saved_waypoint_index
 	current_waypoint_sequence = last_respawn_point.saved_waypoint_sequence
 	waypoint_sequence_count = last_respawn_point.saved_waypoint_sequence_count

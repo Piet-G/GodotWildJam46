@@ -13,17 +13,11 @@ var speed = 5
 func _ready():
 	pass # Replace with function body.
 
+func _on_StartButton_pressed():
+	get_tree().reload_current_scene()
 
 func _on_Vote_pressed():
 	OS.shell_open("https://www.google.com")
-
-
-func _on_StartButton_pressed():
-	get_tree().get_nodes_in_group("player")[0].start_game()
-	get_tree().get_nodes_in_group("orby")[0].start_game()
-	started = true
-	visible = false
-
 
 func _on_Quit_pressed():
 	get_tree().quit()
