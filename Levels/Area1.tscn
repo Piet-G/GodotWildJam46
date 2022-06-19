@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Levels/1/Main.png" type="Texture" id=12]
 [ext_resource path="res://Levels/1/F.png" type="Texture" id=13]
 [ext_resource path="res://Levels/1/Paralax.png" type="Texture" id=14]
+[ext_resource path="res://CanvasModulate.tscn" type="PackedScene" id=15]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -57, 259, -3, 294, 64, 334, 82, 357, 113, 366, 162, 337, -27, 204, -95, -68, -81, 223 )
@@ -37,6 +38,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="CanvasModulate" parent="FarBackground" instance=ExtResource( 15 )]
+
 [node name="Nearbackground" type="CanvasLayer" parent="."]
 layer = -1
 follow_viewport_enable = true
@@ -49,6 +52,8 @@ texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CanvasModulate" parent="Nearbackground" instance=ExtResource( 15 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -5
@@ -66,6 +71,8 @@ position = Vector2( 2494, 234 )
 scale = Vector2( 0.511177, 0.511177 )
 z_index = 25
 texture = ExtResource( 14 )
+
+[node name="CanvasModulate" parent="ParallaxBackground" instance=ExtResource( 15 )]
 
 [node name="Level" type="Sprite" parent="."]
 light_mask = 3

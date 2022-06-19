@@ -31,6 +31,9 @@ var walk_playing = false
 var last_respawn_point: RespawnPoint
 var game_started = false
 
+func start_game():
+	game_started = true
+
 func is_lit() -> bool:
 	for area in light_detection_area.get_overlapping_areas():
 		if(area.is_in_group("light")):

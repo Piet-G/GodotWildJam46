@@ -17,7 +17,7 @@ export var close_to_mouse_treshold = 10
 var is_lit = false
 var was_lit = false
 
-var game_started = true
+var game_started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
