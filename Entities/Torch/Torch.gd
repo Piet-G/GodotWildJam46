@@ -10,6 +10,7 @@ var is_physically_lit = false
 var light_timer = 0
 var light_duration = 1
 var max_distance = 1600
+var is_playing = false
 
 func _ready():
 	is_physically_lit = false
@@ -22,6 +23,9 @@ func set_lit(val):
 	if(val):
 		$ParticleOrigin/LightArea.collision_layer = 1
 		$ParticleOrigin/LightArea.collision_mask = 1
+		if(!is_playing):
+			$AudioStreamPlayer2D.playing = true;
+			is_playing = true
 	else:
 		$ParticleOrigin/LightArea.collision_layer = 0
 		$ParticleOrigin/LightArea.collision_mask = 0
