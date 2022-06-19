@@ -9,12 +9,11 @@ var rng = RandomNumberGenerator.new()
 var drop_playing = false
 var wind_playing = false
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	drops = [$AudioStreamPlayer,$AudioStreamPlayer2,$AudioStreamPlayer3,$AudioStreamPlayer4]
 	winds = [$AudioStreamPlayer5,$AudioStreamPlayer6,$AudioStreamPlayer7,$AudioStreamPlayer8]
-	
+
 	rng.randomize()
 	$DropSounds.start(rng.randf_range(5.0, 15.0))
 	$WindSounds.start(rng.randf_range(10.0, 30.0))

@@ -132,7 +132,7 @@ position = Vector2( 1079, -82 )
 
 [node name="CollisionPolygon2D" parent="AreaHider" index="0"]
 position = Vector2( -1925, 58 )
-polygon = PoolVector2Array( 806, -632, 499, 225, 7856, 292, 7629, -1499, 3177, -1227, 1402, -1128 )
+polygon = PoolVector2Array( 276, -1269, 499, 225, 7856, 292, 7629, -1499, 3186, -1415, 1397, -1445 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
