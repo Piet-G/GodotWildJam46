@@ -188,21 +188,14 @@ position = Vector2( 4245, 466 )
 [node name="RespawnPoint" parent="." instance=ExtResource( 10 )]
 position = Vector2( 3717, 374 )
 
-[node name="CameraSetArea" parent="." instance=ExtResource( 11 )]
-position = Vector2( 4596, 565 )
-limit_height = 2
-
-[node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
-position = Vector2( 28, -600 )
-
 [node name="CameraSetArea2" parent="." instance=ExtResource( 11 )]
-position = Vector2( -363, 496 )
+position = Vector2( -371, 510 )
 scale = Vector2( 5.5476, 1 )
+limit_height = 3
 
 [node name="AreaHider" parent="." instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" parent="AreaHider" index="0"]
 polygon = PoolVector2Array( -1154, -1001, -1163, 1411, 5961, 1331, 6597, 1072, 6559, -846 )
 
-[editable path="CameraSetArea"]
 [editable path="AreaHider"]
