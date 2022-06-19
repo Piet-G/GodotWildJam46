@@ -31,7 +31,7 @@ var scared_playing = false
 
 var last_respawn_point: RespawnPoint
 var game_started = false
-
+var diamond = false
 func start_game():
 	game_started = true
 
@@ -85,6 +85,8 @@ func get_next_waypoint_sequence() -> WaypointSequence:
 			get_tree().get_nodes_in_group("orby")[0].game_started = false
 			animation_player.play("diamond")
 			waypoint_sequence_count = -1
+			diamond = true
+			$CanvasLayer.add_child(preload("res://GameOver.tscn").instance())
 			return null
 			
 	return null
@@ -156,7 +158,8 @@ func respawn():
 	orby.respawn_to($OrbyRespawnPosition.global_position)
 
 func _physics_process(delta):
-	navigate_waypoint_sequence(delta)
+	if(not diamond):
+		navigate_waypoint_sequence(delta)
 
 func play_or_continue_animation(animation: String):
 	if(animation_player.current_animation != animation):

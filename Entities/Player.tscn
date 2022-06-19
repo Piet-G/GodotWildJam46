@@ -150,3 +150,6 @@ stream = ExtResource( 12 )
 stream = ExtResource( 14 )
 volume_db = -15.0
 max_distance = 5000.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 30
