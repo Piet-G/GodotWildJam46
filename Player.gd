@@ -25,10 +25,11 @@ var current_waypoint_sequence : WaypointSequence
 var current_waypoint_index = 0
 
 var waypoint_distance_threshold = 10
-var waypoint_sequence_count = 0
+var waypoint_sequence_count = -1
 var walk_playing = false
 
 var last_respawn_point: RespawnPoint
+var game_started = false
 
 func is_lit() -> bool:
 	for area in light_detection_area.get_overlapping_areas():
@@ -50,6 +51,8 @@ func has_reached_waypoint(waypoint: Vector2) -> bool:
 
 func get_next_waypoint_sequence() -> WaypointSequence:
 	match waypoint_sequence_count:
+		-1: 
+			return get_node(waypoint_1) as WaypointSequence
 		0:
 			if(get_node(waypoiny_2_detect_area).is_overlapping_player()):
 				return get_node(waypoint_2_2) as WaypointSequence
@@ -79,6 +82,8 @@ func get_next_waypoint_sequence() -> WaypointSequence:
 
 func has_finished_waiting() -> bool:
 	match waypoint_sequence_count:
+		-1:
+			return game_started
 		3:
 			return get_node(door_1).is_open
 	
@@ -132,10 +137,6 @@ func respawn():
 
 func _physics_process(delta):
 	navigate_waypoint_sequence(delta)
-
-func _ready():
-	current_waypoint_sequence = get_node(waypoint_1)
-
 
 func play_or_continue_animation(animation: String):
 	if(animation_player.current_animation != animation):
