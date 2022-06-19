@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Entities/Orby/Orby.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Gradient.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Orby/Assets/IDLE4_0012.png" type="Texture" id=3]
 [ext_resource path="res://Entities/Camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/light_3.png" type="Texture" id=7]
 [ext_resource path="res://LightArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/Orby/Assets/IDLE3_0001.png" type="Texture" id=9]
 [ext_resource path="res://Entities/Orby/Assets/IDLE4_0001.png" type="Texture" id=10]
@@ -55,7 +55,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.8 ]
+"values": [ 0.4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Light2D:energy")
@@ -67,7 +67,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1.0 ]
+"values": [ 2.25 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("LightArea/CollisionShape2D:shape:radius")
@@ -94,7 +94,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 0.203063, 4.59479 ),
 "update": 0,
-"values": [ 0.8, 1.5 ]
+"values": [ 0.4, 0.8 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Light2D:energy")
@@ -106,7 +106,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 1.0, 1.5 ]
+"values": [ 2.25, 3.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("LightArea/CollisionShape2D:shape:radius")
@@ -217,9 +217,10 @@ anims/idle = SubResource( 3 )
 current = true
 
 [node name="Light2D" type="Light2D" parent="."]
-texture = ExtResource( 7 )
-texture_scale = 0.8
-color = Color( 1, 0.482353, 0.203922, 1 )
+texture = ExtResource( 2 )
+texture_scale = 0.4
+color = Color( 1, 0.596078, 0.203922, 1 )
+energy = 2.25
 range_height = 2048.0
 range_layer_min = -20
 range_layer_max = 20
