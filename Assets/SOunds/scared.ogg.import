@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/scared.ogg-e955d062ebbeb8188f15e2a240cef404.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/scared.ogg"
+dest_files=[ "res://.import/scared.ogg-e955d062ebbeb8188f15e2a240cef404.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
