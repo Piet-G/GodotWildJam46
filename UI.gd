@@ -15,8 +15,7 @@ func _ready():
 
 
 func _on_Vote_pressed():
-	OS.shell_open("https://www.google.com")
-
+	OS.shell_open("https://piet.itch.io/light-the-way")
 
 func _on_StartButton_pressed():
 	get_tree().get_nodes_in_group("player")[0].start_game()

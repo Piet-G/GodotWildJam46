@@ -150,10 +150,12 @@ func navigate_waypoint_sequence(delta: float):
 func respawn():
 	$DeathSound.play()
 	$Sprite.visible = false
+	$Particles2D.emitting = true
 	current_waypoint_index = last_respawn_point.saved_waypoint_index
 	current_waypoint_sequence = last_respawn_point.saved_waypoint_sequence
 	waypoint_sequence_count = last_respawn_point.saved_waypoint_sequence_count
-	
+	yield(get_tree().create_timer(2.0), "timeout")
+	$Sprite.visible = true
 	global_position = current_waypoint_sequence.get_waypoints()[current_waypoint_index]
 	var orby = get_tree().get_nodes_in_group("orby")[0]
 	orby.respawn_to($OrbyRespawnPosition.global_position)

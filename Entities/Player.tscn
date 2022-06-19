@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Assets/Run/Explorer_0001.png" type="Texture" id=2]
@@ -105,10 +105,6 @@ tracks/0/keys = {
 [sub_resource type="Curve" id=8]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.100503, 0.684685 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=9]
-offsets = PoolRealArray( 0, 0.37037, 0.688889, 1 )
-colors = PoolColorArray( 0.945312, 0.487708, 0.083939, 1, 0.996094, 0.400682, 0.0063177, 1, 0.972656, 0.0329017, 0.0329017, 1, 1, 1, 1, 1 )
-
 [node name="Player" type="Area2D" groups=["player"]]
 z_index = 20
 script = ExtResource( 1 )
@@ -165,12 +161,16 @@ layer = 30
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 
 [node name="Particles2D" type="CPUParticles2D" parent="."]
-position = Vector2( 344, 592 )
-amount = 10
+emitting = false
+amount = 30
+lifetime = 0.4
+one_shot = true
 texture = ExtResource( 15 )
+emission_shape = 1
+emission_sphere_radius = 20.0
 direction = Vector2( 0, -1 )
 spread = 10.0
-gravity = Vector2( 0, 0 )
+gravity = Vector2( 0, 300 )
 initial_velocity = 270.11
 initial_velocity_random = 0.4
 angular_velocity = 720.0
@@ -180,6 +180,5 @@ linear_accel_random = 1.0
 radial_accel = 100.0
 angle = 360.0
 angle_random = 1.0
-scale_amount = 0.3
+scale_amount = 0.05
 scale_amount_curve = SubResource( 8 )
-color_ramp = SubResource( 9 )

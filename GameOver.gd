@@ -17,7 +17,7 @@ func _on_StartButton_pressed():
 	get_tree().reload_current_scene()
 
 func _on_Vote_pressed():
-	OS.shell_open("https://www.google.com")
+	OS.shell_open("https://piet.itch.io/light-the-way")
 
 func _on_Quit_pressed():
 	get_tree().quit()
