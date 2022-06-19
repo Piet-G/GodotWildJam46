@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Levels/Area1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Assets/Sounds/Wind1.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Assets/Sounds/Drop2.ogg" type="AudioStream" id=16]
 [ext_resource path="res://CanvasModulate.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Levels/UILayer.gd" type="Script" id=18]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 3, 529, 423, 506, 724, 506, 1185, 536, 1592, 530, 1573, 816, -352, 886 )
@@ -113,6 +114,7 @@ volume_db = -10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 30
+script = ExtResource( 18 )
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]
 
@@ -126,15 +128,11 @@ layer = 30
 [editable path="Area1/CameraSetArea"]
 [editable path="Area1/AreaHider"]
 [editable path="Area2"]
-[editable path="Area2/CameraSetArea"]
-[editable path="Area2/CameraSetArea2"]
-[editable path="Area2/CameraSetArea3"]
 [editable path="Area2/RespawnPoint"]
 [editable path="Area2/RespawnPoint2"]
 [editable path="Area2/WoodenDoor2"]
 [editable path="Area2/AreaHider"]
 [editable path="Area3"]
-[editable path="Area3/CameraSetArea"]
 [editable path="Area3/AreaHider"]
 [editable path="Area4"]
 [editable path="Area4/AreaHider"]

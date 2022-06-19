@@ -76,20 +76,20 @@ position = Vector2( 3602, -484 )
 is_lit = false
 
 [node name="Water" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2332, -308 )
-scale = Vector2( 8.9405, 2.62957 )
+position = Vector2( 2331, -318 )
+scale = Vector2( 9.7005, 2.62957 )
 
 [node name="PlayerDetectArea2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 635, -6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectArea2"]
-polygon = PoolVector2Array( 468, -180, 680, -142, 980, -392, 1672, -416, 1362, -530, 909, -545, 683, -377 )
+polygon = PoolVector2Array( 419, -124, 547, -108, 980, -392, 1672, -416, 1362, -530, 909, -545, 683, -377 )
 
 [node name="AreaHider" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1079, -82 )
 
 [node name="CollisionPolygon2D" parent="AreaHider" index="0"]
-position = Vector2( -53, 215 )
+position = Vector2( -55, 209 )
 polygon = PoolVector2Array( -338, -1491, -469, 503, 4580, 308, 6120, -465, 4257, -1462 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

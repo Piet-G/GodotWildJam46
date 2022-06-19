@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://Entities/CameraSetArea.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Levels/1/Main.png" type="Texture" id=12]
 [ext_resource path="res://Levels/1/F.png" type="Texture" id=13]
-[ext_resource path="res://Levels/1/Paralax.png" type="Texture" id=14]
+[ext_resource path="res://Levels/Parallax/MAIN_clean_export.png" type="Texture" id=14]
 [ext_resource path="res://CanvasModulate.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Levels/Parallax/MAIN_clean_export_rechts.png" type="Texture" id=16]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -57, 259, -3, 294, 64, 334, 82, 357, 113, 366, 162, 337, -27, 204, -95, -68, -81, 223 )
@@ -60,17 +61,24 @@ layer = -5
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 20
-motion_scale = Vector2( 1.2, 1 )
+motion_scale = Vector2( 1.1, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="BackgroundMedium" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 light_mask = 3
-position = Vector2( 2494, 234 )
+position = Vector2( 1042, 249 )
 scale = Vector2( 0.511177, 0.511177 )
 z_index = 25
 texture = ExtResource( 14 )
+
+[node name="BackgroundMedium2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+light_mask = 3
+position = Vector2( 3661, 234 )
+scale = Vector2( 0.511177, 0.511177 )
+z_index = 25
+texture = ExtResource( 16 )
 
 [node name="CanvasModulate" parent="ParallaxBackground" instance=ExtResource( 15 )]
 
@@ -180,21 +188,14 @@ position = Vector2( 4245, 466 )
 [node name="RespawnPoint" parent="." instance=ExtResource( 10 )]
 position = Vector2( 3717, 374 )
 
-[node name="CameraSetArea" parent="." instance=ExtResource( 11 )]
-position = Vector2( 4596, 565 )
-limit_height = 2
-
-[node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
-position = Vector2( 28, -600 )
-
 [node name="CameraSetArea2" parent="." instance=ExtResource( 11 )]
-position = Vector2( -363, 496 )
+position = Vector2( -371, 510 )
 scale = Vector2( 5.5476, 1 )
+limit_height = 3
 
 [node name="AreaHider" parent="." instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" parent="AreaHider" index="0"]
 polygon = PoolVector2Array( -1154, -1001, -1163, 1411, 5961, 1331, 6597, 1072, 6559, -846 )
 
-[editable path="CameraSetArea"]
 [editable path="AreaHider"]

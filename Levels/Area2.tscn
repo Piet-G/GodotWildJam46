@@ -4,7 +4,7 @@
 [ext_resource path="res://Levels/2/F.png" type="Texture" id=2]
 [ext_resource path="res://Entities/PlayerDetectArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Entities/CameraSetArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CanvasModulate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Water.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/Crystal.tscn" type="PackedScene" id=8]
@@ -113,17 +113,11 @@ position = Vector2( 1056, -408 )
 position = Vector2( -1304, 272 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectArea"]
-polygon = PoolVector2Array( 160, 200, 240, 136, 656, -184, 856, -192, 944, -16, 792, -16, 664, -8, 552, 80, 336, 264 )
+polygon = PoolVector2Array( 196, 195, 240, 136, 656, -184, 856, -192, 944, -16, 792, -16, 664, -8, 552, 80, 235, 307 )
 
 [node name="Water" parent="." instance=ExtResource( 6 )]
-position = Vector2( 160, 344 )
+position = Vector2( 160, 333 )
 scale = Vector2( 9.47406, 1.70681 )
-
-[node name="CameraSetArea" parent="." instance=ExtResource( 5 )]
-position = Vector2( -825, 404 )
-
-[node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
-position = Vector2( 326, -609 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2( -248, 248 )
@@ -172,21 +166,6 @@ position = Vector2( 1200, 16 )
 
 [node name="Waypoint5" parent="WaypointSequenceDeath2" instance=ExtResource( 7 )]
 position = Vector2( 1296, 24 )
-
-[node name="CameraSetArea2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3259, -101 )
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionPolygon2D" parent="CameraSetArea2" index="0"]
-position = Vector2( 8, -576 )
-
-[node name="CameraSetArea3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2251, 301 )
-limit_height = 2
-
-[node name="CollisionPolygon2D" parent="CameraSetArea3" index="0"]
-position = Vector2( 8, -576 )
 
 [node name="Torch3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2255, 221 )
@@ -268,9 +247,8 @@ scale = Vector2( 0.511177, 0.511177 )
 z_index = -11
 texture = ExtResource( 10 )
 
-[editable path="CameraSetArea"]
-[editable path="CameraSetArea2"]
-[editable path="CameraSetArea3"]
+[node name="CanvasModulate" parent="Nearbackground" instance=ExtResource( 5 )]
+
 [editable path="RespawnPoint"]
 [editable path="RespawnPoint2"]
 [editable path="WoodenDoor2"]
