@@ -192,6 +192,7 @@ position = Vector2( 3717, 374 )
 position = Vector2( -371, 510 )
 scale = Vector2( 5.5476, 1 )
 limit_height = 3
+immediate = true
 
 [node name="AreaHider" parent="." instance=ExtResource( 6 )]
 
