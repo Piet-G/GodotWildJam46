@@ -27,6 +27,7 @@ var current_waypoint_index = 0
 var waypoint_distance_threshold = 10
 var waypoint_sequence_count = -1
 var walk_playing = false
+var scared_playing = false
 
 var last_respawn_point: RespawnPoint
 var game_started = false
@@ -108,10 +109,15 @@ func navigate_waypoint_sequence(delta: float):
 			$WalkSound.playing = false
 			walk_playing = false
 			play_or_continue_animation("idle")
+			scared_playing = false
+			$ScaredSound.playing = false
 		else:
 			$WalkSound.playing = false
 			walk_playing = false
 			play_or_continue_animation("scared")
+			if(!scared_playing):
+				scared_playing = true
+				$ScaredSound.playing = true
 		if(has_finished_waiting()):
 			advance_waypoint_sequence()
 	else:
@@ -120,6 +126,8 @@ func navigate_waypoint_sequence(delta: float):
 		if(is_lit()):
 			move_to_waypoint(delta, current_waypoint)
 			play_or_continue_animation("walk")
+			scared_playing = false
+			$ScaredSound.playing = false
 			if(!walk_playing):
 				$WalkSound.playing = true
 				walk_playing = true
@@ -127,6 +135,9 @@ func navigate_waypoint_sequence(delta: float):
 			play_or_continue_animation("scared")
 			$WalkSound.playing = false
 			walk_playing = false
+			if(!scared_playing):
+				scared_playing = true
+				$ScaredSound.playing = true
 		
 		if(has_reached_waypoint(current_waypoint)):
 			current_waypoint_index += 1
