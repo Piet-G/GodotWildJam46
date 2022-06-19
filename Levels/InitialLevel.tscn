@@ -73,6 +73,9 @@ position = Vector2( 118, -40 )
 [node name="Area4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 9249.8, -322 )
 
+[node name="CollisionPolygon2D2" parent="Area4/StaticBody2D" index="1"]
+polygon = PoolVector2Array( 684, 79, 580, 179, 242, 188, 71, 82, -325, 86, -594, 285, 4600, 296, 4483, -599, 130.2, -446, 28.2002, -160, -534.8, -174, -736, 48, -637, 77, -379, -125, -234, -117, -151, -104, 59, -100, 368, -344, 439, -330, 860, -340, 1142, -347, 2021, -341, 2406, -102, 2568, -98, 2814, -251, 3032, -290, 3236, -432, 3432, -474, 3626, -459, 3723, -364, 3978, -295, 4240, -140, 4324, -114, 4255, -37, 4285, 86, 3850, 94, 3102, 83, 2444, 80, 2187, 76, 1886, 72, 755, 66 )
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 1 )
 
@@ -125,7 +128,6 @@ script = ExtResource( 18 )
 
 [editable path="Orby"]
 [editable path="Area1"]
-[editable path="Area1/CameraSetArea"]
 [editable path="Area1/AreaHider"]
 [editable path="Area2"]
 [editable path="Area2/RespawnPoint"]
