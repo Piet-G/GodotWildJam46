@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Assets/Run/Explorer_0001.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Entities/Player/Assets/Idle/IDLE_0012.png" type="Texture" id=6]
 [ext_resource path="res://Entities/Player/Assets/Idle/IDLE_0001.png" type="Texture" id=7]
 [ext_resource path="res://Assets/light.png" type="Texture" id=8]
+[ext_resource path="res://Entities/Player/Assets/Idle/Scared_0001.png" type="Texture" id=9]
+[ext_resource path="res://Entities/Player/Assets/Idle/Scared_0002.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
@@ -43,6 +45,24 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "scared"
+length = 0.2
+loop = true
+step = 0.125
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.125 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ), ExtResource( 10 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -84,6 +104,7 @@ polygon = PoolVector2Array( -19, 0, -59, 0, -19, -8, -17, -75, 396, -53, 395, -1
 autoplay = "idle"
 anims/RESET = SubResource( 3 )
 anims/idle = SubResource( 5 )
+anims/scared = SubResource( 6 )
 anims/walk = SubResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -92,6 +113,8 @@ texture = ExtResource( 8 )
 texture_scale = 0.15
 color = Color( 1, 0.494118, 0, 1 )
 energy = 0.7
+range_layer_min = -20
+range_layer_max = 20
 
 [node name="OrbyRespawnPosition" type="Position2D" parent="."]
 position = Vector2( -179, -73 )

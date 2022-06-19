@@ -1,17 +1,25 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://MainTerrain.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/SLOPE2.png" type="Texture" id=2]
+[ext_resource path="res://Levels/3/Main_1.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Spikes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Torch/Torch.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/SLOPE2_upperlvl2.png" type="Texture" id=5]
+[ext_resource path="res://Levels/3/Main_2.png" type="Texture" id=5]
 [ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/PlayerDetectArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/CameraSetArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://AreaHider.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/3/F.png" type="Texture" id=11]
+[ext_resource path="res://Levels/3/BG.png" type="Texture" id=12]
 
 [node name="Area3" type="Node2D"]
 position = Vector2( 9256, -320 )
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3680, -520 )
+z_index = 5
+texture = ExtResource( 12 )
 
 [node name="MainTerrain" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3680, -520 )
@@ -20,6 +28,11 @@ texture = ExtResource( 2 )
 [node name="MainTerrain2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3680, -520 )
 texture = ExtResource( 5 )
+
+[node name="Foreground" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3680, -520 )
+z_index = 25
+texture = ExtResource( 11 )
 
 [node name="Spikes" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2464, 32 )
@@ -31,34 +44,22 @@ position = Vector2( 2408, -112 )
 position = Vector2( 1800, -640 )
 
 [node name="Torch2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1744, -784 )
+position = Vector2( 1752, -802 )
 
 [node name="Torch3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1256, -784 )
-
-[node name="Torch4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 928, -648 )
+position = Vector2( 1218, -759 )
 
 [node name="Torch5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 680, -408 )
-
-[node name="Torch6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 352, -136 )
+position = Vector2( 694, -429 )
 
 [node name="Torch7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 120, -40 )
-
-[node name="Torch8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 944, -40 )
+position = Vector2( 206, -54 )
 
 [node name="Torch9" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1360, -40 )
-
-[node name="Torch10" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1720, -40 )
+position = Vector2( 1448, -50 )
 
 [node name="Torch11" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2032, -40 )
+position = Vector2( 1951, -35 )
 
 [node name="WaypointSequence" parent="." instance=ExtResource( 6 )]
 
@@ -126,4 +127,22 @@ limit_height = 2
 [node name="CollisionPolygon2D" parent="CameraSetArea" index="0"]
 position = Vector2( 28, -600 )
 
+[node name="AreaHider" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1079, -82 )
+
+[node name="CollisionPolygon2D" parent="AreaHider" index="0"]
+position = Vector2( -1925, 58 )
+polygon = PoolVector2Array( 806, -632, 499, 225, 7856, 292, 7629, -1499, 3177, -1227, 1402, -1128 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 1, 6, 1455, 18, 2396, 28, 2397, 112, 2544, 113, 2548, 30, 2581, -3, 2626, -16, 2633, -43, 2587, -78, 2593, -128, 2567, -137, 2555, -127, 2495, -153, 2469, -190, 2426, -184, 2392, -195, 2339, -175, 2315, -181, 2213, -129, 2141, -135, 2086, -128, 2019, -146, 1830, -141, 1400, -138, 1480, -169, 2598, -230, 2701, 3, 2620, 196, 17, 80 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -7, -130, 194, -126, 568, -432, 869, -700, 1047, -875, 1322, -884, 1383, -822, 1548, -814, 1646, -893, 1741, -915, 1837, -884, 1895, -840, 1932, -773, 1957, -711, 1896, -688, 1873, -645, 1871, -590, 1723, -592, 1723, -653, 1077, -661, 518, -160, 569, -140, 1016, -141, 1312, -396, 1516, -581, 1563, -551, 1983, -545, 2011, -925, 722, -961, 47, -691 )
+
 [editable path="CameraSetArea"]
+[editable path="AreaHider"]

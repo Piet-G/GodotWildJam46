@@ -18,6 +18,13 @@ func set_lit(val):
 	is_physically_lit = val
 	particles.emitting = val
 	light2D.enabled = val
+	
+	if(val):
+		$ParticleOrigin/LightArea.collision_layer = 1
+		$ParticleOrigin/LightArea.collision_mask = 1
+	else:
+		$ParticleOrigin/LightArea.collision_layer = 0
+		$ParticleOrigin/LightArea.collision_mask = 0
 
 func check_distance():
 	var in_range = get_tree().get_nodes_in_group("orby")[0].global_position.distance_to(global_position) <= max_distance

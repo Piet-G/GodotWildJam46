@@ -21,8 +21,6 @@ export(NodePath) var waypoint_5_1
 export(NodePath) var waypoiny_5_detect_area
 export(NodePath) var waypoint_5_2
 
-
-
 var current_waypoint_sequence : WaypointSequence
 var current_waypoint_index = 0
 
@@ -76,7 +74,6 @@ func get_next_waypoint_sequence() -> WaypointSequence:
 			else:
 				return get_node(waypoint_5_1) as WaypointSequence
 			
-	print("Finished")
 	return null
 
 func has_finished_waiting() -> bool:
@@ -93,7 +90,10 @@ func advance_waypoint_sequence():
 	
 func navigate_waypoint_sequence(delta: float):
 	if(not current_waypoint_sequence):
-		play_or_continue_animation("idle")
+		if(is_lit()):
+			play_or_continue_animation("idle")
+		else:
+			play_or_continue_animation("scared")
 		if(has_finished_waiting()):
 			advance_waypoint_sequence()
 	else:
@@ -103,7 +103,7 @@ func navigate_waypoint_sequence(delta: float):
 			move_to_waypoint(delta, current_waypoint)
 			play_or_continue_animation("walk")
 		else:
-			play_or_continue_animation("idle")
+			play_or_continue_animation("scared")
 		
 		if(has_reached_waypoint(current_waypoint)):
 			current_waypoint_index += 1

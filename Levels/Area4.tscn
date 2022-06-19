@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MainTerrain.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/SLOPE2_upperlvl1.png" type="Texture" id=2]
+[ext_resource path="res://Levels/3/Main_3.png" type="Texture" id=2]
 [ext_resource path="res://Entities/WaypointSequence.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Waypoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/SLOPE2_grates.png" type="Texture" id=5]
 [ext_resource path="res://Entities/Crystal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Torch/Torch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Water.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/PlayerDetectArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://AreaHider.tscn" type="PackedScene" id=10]
 
 [node name="Area4" type="Node2D"]
 
@@ -30,10 +30,6 @@ scale = Vector2( 0.9, 0.9 )
 position = Vector2( 3591, -600 )
 rotation = -2.09335
 scale = Vector2( 0.703332, 0.701119 )
-
-[node name="MainTerrain4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3688, -520 )
-texture = ExtResource( 5 )
 
 [node name="WaypointSequence" parent="." instance=ExtResource( 3 )]
 
@@ -72,15 +68,11 @@ position = Vector2( 2974, -491 )
 is_lit = false
 
 [node name="Torch2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3238, -485 )
-is_lit = false
-
-[node name="Torch3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3449, -484 )
+position = Vector2( 3282, -487 )
 is_lit = false
 
 [node name="Torch4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3613, -484 )
+position = Vector2( 3602, -484 )
 is_lit = false
 
 [node name="Water" parent="." instance=ExtResource( 8 )]
@@ -92,3 +84,22 @@ position = Vector2( 635, -6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectArea2"]
 polygon = PoolVector2Array( 468, -180, 680, -142, 980, -392, 1672, -416, 1362, -530, 909, -545, 683, -377 )
+
+[node name="AreaHider" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1079, -82 )
+
+[node name="CollisionPolygon2D" parent="AreaHider" index="0"]
+position = Vector2( -53, 215 )
+polygon = PoolVector2Array( -338, -1491, -469, 503, 4580, 308, 6120, -465, 4257, -1462 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 1943, -455 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -15, 0 )
+polygon = PoolVector2Array( 240, 13, 200, -32, 223, -54, 244, -64, 555, -68, 704, -192, 1008, -192, 1048, -192, 1055, -182, 1164, -183, 1176, -192, 1304, -192, 1306, -180, 1422, -181, 1424, -192, 1544, -192, 1544, -168, 1664, -168, 1664, -192, 1936, -192, 1968, -168, 1945, -98, 1664, -96, 1664, -152, 1544, -152, 1547, -100, 1406, -98, 1419, -167, 1306, -166, 1283, -92, 1206, -94, 1174, -111, 1164, -166, 1053, -167, 1032, -120, 976, -120, 752, -128, 712, -120, 555, 13 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 684, 79, 580, 179, 242, 188, 71, 82, -325, 86, -594, 285, 4600, 296, 4483, -599, -740, -565, -736, 48, -637, 77, -379, -125, -234, -117, -151, -104, 59, -100, 368, -344, 439, -330, 860, -340, 1142, -347, 2021, -341, 2406, -102, 2568, -98, 2814, -251, 3032, -290, 3236, -432, 3432, -474, 3626, -459, 3723, -364, 3978, -295, 4240, -140, 4324, -114, 4255, -37, 4285, 86, 3850, 94, 3102, 83, 2444, 80, 2187, 76, 1886, 72, 755, 66 )
+
+[editable path="AreaHider"]
