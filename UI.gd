@@ -19,10 +19,7 @@ func _on_Vote_pressed():
 
 
 func _on_StartButton_pressed():
-	started = true
-	get_tree().get_nodes_in_group("player")[0].start_game()
-	get_tree().get_nodes_in_group("orby")[0].start_game()
-	visible = false
+	get_tree().reload_current_scene()
 
 
 func _on_Quit_pressed():
